@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+
+@font-face {
+  font-family: "Numbers";
+  src: url("/fonts/Comfortaa-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: oblique;
+}
+
+@font-face {
+    font-family: "Texts";
+    src: url("/fonts/BricolageGrotesque-VariableFont_opsz\,wdth\,wght.ttf") format("truetype");
+    font-weight: 100 900;
+  font-style: oblique;
+}
+
+@font-face {
+    font-family: "labels";
+    src: url("/fonts/NunitoSans-VariableFont_YTLC\,opsz\,wdth\,wght.ttf") format("truetype");
+    font-weight:100  900;
+  font-style: oblique;
+}

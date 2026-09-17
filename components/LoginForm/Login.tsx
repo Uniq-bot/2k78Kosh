@@ -6,7 +6,7 @@ import { Mail, Lock } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
-    const navigate= useRouter()
+  const navigate = useRouter();
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -17,19 +17,21 @@ const Login = () => {
     isPending,
     isError,
     error,
-    isSuccess
+    isSuccess,
   } = useLogin();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-   const res= await login({
+    const res = await login({
       email: user.email,
       password: user.password,
     });
 
-    if(res){
-        navigate.push("/dashboard")
+    if (res && res.role === "ADMIN") {
+      navigate.push("/admin/dashboard");
+    } else if (res.role === "USER") {
+      navigate.push("/dashboard/AddSavings");
     }
   };
 
@@ -140,7 +142,6 @@ const Login = () => {
         >
           {isPending ? "Logging in..." : "Login"}
         </button>
-
       </form>
     </main>
   );

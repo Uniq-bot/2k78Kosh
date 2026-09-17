@@ -45,12 +45,18 @@ model SavingsPost {
   id String @id @default(cuid())
 
   amount Float
-
+  proof  String
   postedId String
   postedBy User   @relation(fields: [postedId], references: [id])
 
   groupId String
   group   Group  @relation(fields: [groupId], references: [id])
-
+  status Status @default(PENDING)
   createdAt DateTime @default(now())
+}
+
+
+enum Status {
+  PENDING
+  VERIFIED
 }
