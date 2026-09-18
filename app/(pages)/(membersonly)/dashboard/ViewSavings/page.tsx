@@ -66,7 +66,7 @@ const ViewSavings = async () => {
                 <td  className="py-2">{saving.amount}</td>
                 <td  className="py-2">{saving.status}</td>
                 <td  className="py-2">
-                  <a href={`http://localhost:3000/proofs/${saving.proof}`} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
+                  <a href={`${process.env.NEXT_PUBLIC_BASE_URL}/proofs/${saving.proof}`} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">
                     View Proof
                   </a>
                 </td>
