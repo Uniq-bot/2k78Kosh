@@ -19,28 +19,32 @@ enum Role {
 }
 
 model Group {
-  id        String   @id @default(cuid())
-  name      String
-  createdAt DateTime @default(now())
-  adminId   String
-  admin     User     @relation("GroupAdmin", fields: [adminId], references: [id])
-  members      User[]
+  id          String        @id @default(cuid())
+  name        String
+  createdAt   DateTime      @default(now())
+
+  adminId     String        @unique
+  admin       User          @relation("GroupAdmin", fields: [adminId], references: [id])
+
+  members     User[]        @relation("GroupMembers")
+
   savingsPosts SavingsPost[]
 }
 
 model User {
-  id       String  @id @default(cuid())
-  email    String  @unique
-  name     String?
-  password String
-  role     Role  @default(USER)
-  adminOf  Group[] @relation("GroupAdmin")
-  groupId String?
-  group   Group?  @relation(fields: [groupId], references: [id])
+  id          String        @id @default(cuid())
+  email       String        @unique
+  name        String?
+  password    String
+  role        Role          @default(USER)
 
-  posts SavingsPost[]
+  adminOf     Group?        @relation("GroupAdmin")
+
+  groupId     String?
+  group       Group?        @relation("GroupMembers", fields: [groupId], references: [id])
+
+  posts       SavingsPost[]
 }
-
 model SavingsPost {
   id String @id @default(cuid())
 

@@ -4,8 +4,8 @@ import bcrypt from "bcrypt";
 
 
 async function main() {
-  const email = "user@2k78kosh.com";
-  const password = "user23";
+  const email = "unique@2k78kosh.com";
+  const password = "unique@2k78kosh";
 
   // Hash password
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -20,7 +20,7 @@ async function main() {
     },
     create: {
       email,
-      name: "Member",
+      name: "Unique Prajapati",
       password: hashedPassword,
       role: "USER",
     },

@@ -53,7 +53,7 @@ export const addSavings = async (savingData: SavingData) => {
       throw new Error("You must be part of a Kosh");
     }
 
-    const storagePath = path.join(process.cwd(), "proofs");
+    const storagePath = path.join(process.cwd(), "/public/proofs");
 
     const file = savingData.proof;
 
